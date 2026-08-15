@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Showing the working · Amordle updates</title>
+    <meta
+      name="description"
+      content="A methodology page publishing every scoring formula, a reachable About page, shareable profile links, and a repair to a shop that had never worked for anyone signed in."
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <header class="masthead">
+        <a href="../">amordle</a>
+        <span class="path">/ updates / showing the working</span>
+        <nav>
+          <a href="https://amordle.vercel.app">Play</a>
+          <a href="https://amordle.vercel.app/methodology">Methodology</a>
+        </nav>
+      </header>
+
+      <main class="post">
+        <div class="meta">
+          <span>15 August 2026</span>
+          <span class="tag is-visual">Video</span>
+        </div>
+        <h1 class="page-title">Showing the working</h1>
+        <p class="page-intro">
+          Two new pages, a way to share a profile, and a shop that turns out never to have worked.
+        </p>
+
+        <figure>
+          <video controls preload="none" poster="../media/v10-poster.png" playsinline>
+            <source src="../media/v10-methodology.mp4" type="video/mp4" />
+            <p>
+              Your browser cannot play this video.
+              <a href="../media/v10-methodology.mp4">Download it instead</a>, or read on — the post
+              covers everything the video does.
+            </p>
+          </video>
+          <figcaption>
+            Twenty-four seconds through the new pages. Captioned, and it says nothing the text below
+            does not.
+          </figcaption>
+        </figure>
+
+        <h2>A page that shows every formula</h2>
+        <p>
+          Amordle now has a <a href="https://amordle.vercel.app/methodology">methodology page</a>. It
+          sets out exactly how ratings, experience and coins are calculated: the Elo equation, the
+          two K-factors and where the provisional threshold sits, why there are forty separate
+          rating pools, how a match is decided on points, how the leaderboard breaks ties, the
+          experience curve, and the formula behind the one price in the game that moves.
+        </p>
+        <p>
+          The reason it exists is narrow. A rating that goes down is easy to blame on the system, and
+          there is no way to answer that except by publishing the arithmetic. Every number on that
+          page was read out of the code that runs, and the page names its source for each one.
+        </p>
+
+        <div class="callout">
+          <p>
+            <strong>Three uncomfortable things are on the page too.</strong> There is no rating floor
+            or ceiling. A match is not always zero-sum — two players on different K-factors do not
+            trade equal points. And the price of buying another guess is calculated by the app
+            rather than the server, unlike the fixed prices, which are not. A transparency page that
+            leaves out the awkward parts is an advertisement.
+          </p>
+        </div>
+
+        <p>
+          One thing was deliberately left off. The daily streak on the private stats panel is
+          displayed but never advanced by anything — it is only ever set by importing an old save.
+          Documenting a dead number on a page about honesty would invite exactly the suspicion the
+          page exists to prevent, so it is not there. It will either start working or stop being
+          shown.
+        </p>
+
+        <h2>An About page that was already written</h2>
+        <p>
+          <a href="https://amordle.vercel.app/about">About</a> existed and had for some time. It was
+          simply not in the menu, reachable only by an old redirect nobody would guess at. It now
+          carries the repository, three separate routes for reporting a bug, a security problem or an
+          idea, and where the words come from — every word in the game is drawn from the
+          <a href="https://english-openlist.pages.dev/">English OpenList</a>, which is published in
+          full so the vocabulary can be inspected rather than taken on trust.
+        </p>
+        <p>Both pages sit in the menu, after Help.</p>
+
+        <h2>Finding your own profile</h2>
+        <p>
+          Every player has had a unique profile address for a while. What was missing was any way to
+          find your own: opening your own public profile redirects you to your settings, so the only
+          route to your own link was asking somebody else to look you up.
+        </p>
+        <p>
+          There is now a copy button on your profile, and one on anybody else's. Both hand you the
+          full address.
+        </p>
+
+        <h2>A shop that had never worked</h2>
+        <p>
+          Reading the economy in order to describe it truthfully turned up something worth stating
+          plainly: for anyone signed in, buying a hint had never worked at all.
+        </p>
+        <p>
+          The app and the server had drifted into naming the same two items differently — the app
+          used the names of the database columns, the server expected its own — and neither side was
+          wrong on its own terms, so nothing failed anywhere except at the boundary between them.
+          Every purchase was refused. Guests were unaffected, because guest purchases never leave the
+          device, which is why the shop looked fine to anyone testing without an account.
+        </p>
+        <p>
+          It is fixed, and there is now a test that compares the two sides against each other rather
+          than against a written-down copy of what each is supposed to say. The written-down copy
+          would have drifted the same way.
+        </p>
+
+        <h2>Smaller things</h2>
+        <ul>
+          <li>
+            The leaderboard links to the methodology, so a rating you did not expect is one click
+            from an explanation.
+          </li>
+          <li>
+            Outbound links across the app now behave the same way as each other. Two of them
+            previously disagreed about how they opened.
+          </li>
+          <li>
+            Copy buttons report whether the copy worked. One of them already did; the other three
+            failed silently, which is worse than not offering the button — you walk away believing
+            you have the link.
+          </li>
+        </ul>
+      </main>
+
+      <footer class="site-footer">
+        <a href="../">All updates</a>
+        <span>Amordle is built by <a href="https://ryanjosephkamp.github.io">Ryan Kamp</a>.</span>
+        <a href="https://github.com/ryanjosephkamp/amordle">Repository</a>
+      </footer>
+    </div>
+  </body>
+</html>

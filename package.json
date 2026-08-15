@@ -1,0 +1,17 @@
+{
+  "name": "amordle-updates",
+  "private": true,
+  "version": "1.0.0",
+  "description": "The Amordle changelog, and the Remotion project that makes its videos.",
+  "scripts": {
+    "video": "remotion render remotion/index.ts",
+    "studio": "remotion studio remotion/index.ts"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.512",
+    "@remotion/google-fonts": "^4.0.512",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "remotion": "^4.0.512"
+  }
+}
