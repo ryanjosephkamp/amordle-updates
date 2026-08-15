@@ -22,7 +22,7 @@ export const Root: React.FC = () => {
       schema={updateVideoSchema}
       defaultProps={{
         eyebrow: '15 AUGUST 2026',
-        title: 'Showing the working',
+        title: 'What’s under the hood',
         beats: [
           {
             heading: 'Methodology',

@@ -10,7 +10,7 @@ the changelog lives here rather than there.
 
 One post per **significant** update. Not every commit, and not every fix. If a
 change is invisible to a player and does not alter how anything is calculated,
-it probably does not warrant a post — use judgement, and prefer fewer, fuller
+it probably does not warrant a post — use judgment, and prefer fewer, fuller
 posts to a running log.
 
 A post says what changed and why, in plain words, and is black and white about

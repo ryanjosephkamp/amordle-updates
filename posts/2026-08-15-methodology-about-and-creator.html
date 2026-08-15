@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Showing the working · Amordle updates</title>
+    <title>What&rsquo;s under the hood · Amordle updates</title>
     <meta
       name="description"
       content="A methodology page publishing every scoring formula, a reachable About page, shareable profile links, and a repair to a shop that had never worked for anyone signed in."
@@ -14,7 +14,7 @@
     <div class="frame">
       <header class="masthead">
         <a href="../">amordle</a>
-        <span class="path">/ updates / showing the working</span>
+        <span class="path">/ updates / what&rsquo;s under the hood</span>
         <nav>
           <a href="https://amordle.vercel.app">Play</a>
           <a href="https://amordle.vercel.app/methodology">Methodology</a>
@@ -26,7 +26,7 @@
           <span>15 August 2026</span>
           <span class="tag is-visual">Video</span>
         </div>
-        <h1 class="page-title">Showing the working</h1>
+        <h1 class="page-title">What&rsquo;s under the hood</h1>
         <p class="page-intro">
           Two new pages, a way to share a profile, and a shop that turns out never to have worked.
         </p>
@@ -62,7 +62,7 @@
 
         <div class="callout">
           <p>
-            <strong>Three uncomfortable things are on the page too.</strong> There is no rating floor
+            <strong>Three more problems with the page&hellip;</strong> There is no rating floor
             or ceiling. A match is not always zero-sum — two players on different K-factors do not
             trade equal points. And the price of buying another guess is calculated by the app
             rather than the server, unlike the fixed prices, which are not. A transparency page that
@@ -116,6 +116,21 @@
           It is fixed, and there is now a test that compares the two sides against each other rather
           than against a written-down copy of what each is supposed to say. The written-down copy
           would have drifted the same way.
+        </p>
+
+        <h2>The player directory is players again</h2>
+        <p>
+          Eight of the eleven accounts listed on
+          <a href="https://amordle.vercel.app/players">Players</a> were not people. They were
+          end-to-end testing accounts, left behind by an old test harness whose cleanup could fail
+          without saying so, and they had been sitting in the directory ever since — each with a
+          name like <code>Ember 194096d2</code>, zero games, and the same unremarkable "PLAYER"
+          label a real account gets.
+        </p>
+        <p>
+          They have been removed. The test suite that runs today deletes its own accounts after
+          every run and proves it did, so the directory should stay honest without anyone tidying
+          it by hand. Nobody's real profile was touched.
         </p>
 
         <h2>Smaller things</h2>
