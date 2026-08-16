@@ -22,30 +22,27 @@ export const Root: React.FC = () => {
       schema={updateVideoSchema}
       defaultProps={{
         eyebrow: '15 AUGUST 2026',
-        title: 'What’s under the hood',
+        title: 'The daily streak',
         beats: [
           {
-            heading: 'Methodology',
-            lines: [
-              'Every scoring formula the game uses,',
-              'published and named to its source.',
-            ],
-            figure: 'equation' as const,
+            heading: 'It counts now',
+            lines: ['The number was on your stats panel', 'and nothing ever moved it.'],
+            figure: 'streak' as const,
           },
           {
-            heading: 'Forty rating pools',
-            lines: ['Ten clocks, two modes, hard mode.', 'A rating only compares like with like.'],
-            figure: 'pools' as const,
+            heading: 'Either Daily keeps it',
+            lines: ['OG or GO, and finishing counts —', 'a Daily you lose still keeps the streak.'],
+            figure: 'either' as const,
           },
           {
-            heading: 'About',
-            lines: ['Where the words come from,', 'and where to report a problem.'],
-            figure: 'links' as const,
+            heading: 'Your local day',
+            lines: ['The streak turns over at your midnight,', 'not at a server’s.'],
+            figure: 'day' as const,
           },
           {
-            heading: 'Share a profile',
-            lines: ['Copy your own link at last —', 'and anybody else’s.'],
-            figure: 'share' as const,
+            heading: 'Miss a day',
+            lines: ['It lapses, and the next one starts again', 'at one. It cannot be bought back.'],
+            figure: 'lapse' as const,
           },
         ],
         closing: 'amordle.vercel.app/methodology',

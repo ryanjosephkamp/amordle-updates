@@ -23,7 +23,7 @@ import { z } from 'zod';
 const beatSchema = z.object({
   heading: z.string(),
   lines: z.array(z.string()),
-  figure: z.enum(['equation', 'pools', 'links', 'share']),
+  figure: z.enum(['equation', 'pools', 'links', 'share', 'streak', 'either', 'day', 'lapse']),
 });
 
 export const updateVideoSchema = z.object({
@@ -186,19 +186,120 @@ function Figure({ kind }: { kind: Beat['figure'] }) {
     );
   }
 
+  if (kind === 'share') {
+    return (
+      <div style={{ ...box, display: 'flex', alignItems: 'center', gap: 16 }}>
+        <span style={{ color: INK, fontSize: 20 }}>amordle.vercel.app/players/f08161d7…</span>
+        <span
+          style={{
+            border: `1px solid ${ACCENT}`,
+            color: ACCENT,
+            padding: '8px 16px',
+            fontSize: 19,
+          }}
+        >
+          COPY LINK
+        </span>
+      </div>
+    );
+  }
+
+  if (kind === 'streak') {
+    return (
+      <div style={{ ...box, padding: 24 }}>
+        <div style={{ display: 'flex', gap: 10 }}>
+          {['MON', 'TUE', 'WED', 'THU', 'FRI'].map((label) => (
+            <span
+              key={label}
+              style={{
+                border: `1px solid ${ACCENT}`,
+                background: 'rgba(95, 217, 180, 0.12)',
+                color: ACCENT,
+                padding: '10px 18px',
+                fontSize: 19,
+              }}
+            >
+              {label}
+            </span>
+          ))}
+        </div>
+        <div style={{ marginTop: 16, color: INK, fontSize: 21 }}>
+          daily streak <span style={{ color: ACCENT }}>5</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === 'either') {
+    return (
+      <div style={{ ...box, display: 'flex', alignItems: 'center', gap: 14, padding: 24 }}>
+        {['OG', 'GO'].map((label) => (
+          <span
+            key={label}
+            style={{
+              border: `1px solid ${ACCENT}`,
+              color: ACCENT,
+              padding: '10px 22px',
+              fontSize: 21,
+            }}
+          >
+            {label}
+          </span>
+        ))}
+        <span style={{ color: MUTED, fontSize: 21 }}>→</span>
+        <span style={{ color: INK, fontSize: 21 }}>one streak</span>
+        <span style={{ color: MUTED, fontSize: 19 }}>· both in a day still counts once</span>
+      </div>
+    );
+  }
+
+  if (kind === 'day') {
+    return (
+      <div style={{ ...box, padding: 24 }}>
+        <div style={{ color: INK, fontSize: 21 }}>
+          your midnight <span style={{ color: MUTED }}>—</span>{' '}
+          <span style={{ color: ACCENT }}>not anybody else&rsquo;s</span>
+        </div>
+        <div style={{ marginTop: 12, color: MUTED, fontSize: 19 }}>
+          the same local day the Daily calendar already uses
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div style={{ ...box, display: 'flex', alignItems: 'center', gap: 16 }}>
-      <span style={{ color: INK, fontSize: 20 }}>amordle.vercel.app/players/f08161d7…</span>
-      <span
-        style={{
-          border: `1px solid ${ACCENT}`,
-          color: ACCENT,
-          padding: '8px 16px',
-          fontSize: 19,
-        }}
-      >
-        COPY LINK
-      </span>
+    <div style={{ ...box, padding: 24 }}>
+      <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+        {['MON', 'TUE'].map((label) => (
+          <span
+            key={label}
+            style={{
+              border: `1px solid ${ACCENT}`,
+              background: 'rgba(95, 217, 180, 0.12)',
+              color: ACCENT,
+              padding: '10px 18px',
+              fontSize: 19,
+            }}
+          >
+            {label}
+          </span>
+        ))}
+        <span
+          style={{
+            border: `1px dashed ${BORDER}`,
+            color: MUTED,
+            padding: '10px 18px',
+            fontSize: 19,
+          }}
+        >
+          WED
+        </span>
+        <span style={{ color: MUTED, fontSize: 19 }}>→</span>
+        <span style={{ color: INK, fontSize: 21 }}>start again</span>
+      </div>
+      <div style={{ marginTop: 14, color: MUTED, fontSize: 19 }}>
+        an unlocked past Daily pays its coins, and cannot buy the streak back
+      </div>
     </div>
   );
 }

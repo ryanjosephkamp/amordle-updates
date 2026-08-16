@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The daily streak &middot; Amordle updates</title>
+    <meta
+      name="description"
+      content="The daily streak on your stats panel was displayed and never counted anything. It counts now — either Daily, finishing rather than winning, on your own local day."
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <header class="masthead">
+        <a href="../">amordle</a>
+        <span class="path">/ updates / the daily streak</span>
+        <nav>
+          <a href="https://amordle.vercel.app">Play</a>
+          <a href="https://amordle.vercel.app/methodology">Methodology</a>
+        </nav>
+      </header>
+
+      <main class="post">
+        <div class="meta">
+          <span>15 August 2026</span>
+          <span class="tag is-visual">Video</span>
+        </div>
+        <h1 class="page-title">The daily streak</h1>
+        <p class="page-intro">
+          It was on your stats panel the whole time, and nothing ever moved it.
+        </p>
+
+        <figure>
+          <video controls preload="none" poster="../media/v10-3-poster.png" playsinline>
+            <source src="../media/v10-3-daily-streak.mp4" type="video/mp4" />
+            <p>
+              Your browser cannot play this video.
+              <a href="../media/v10-3-daily-streak.mp4">Download it instead</a>, or read on — the
+              post covers everything the video does.
+            </p>
+          </video>
+          <figcaption>Twenty-four seconds on how the streak works.</figcaption>
+        </figure>
+
+        <h2>What was wrong</h2>
+        <p>
+          The last post ended by saying the daily streak was displayed but never advanced, and that
+          it would either start working or stop being shown. It works now.
+        </p>
+        <p>
+          The number was real in the sense that it was stored, read and rendered. It was not real in
+          any sense that mattered: the only thing that had ever written it was the importer that
+          brings across an old save. If you started an account here, your streak was zero and would
+          stay zero however many Dailies you finished.
+        </p>
+
+        <h2>The rules, in full</h2>
+        <p>
+          There are five, and they fit in a paragraph each, which is the point — a streak you cannot
+          predict is a streak you cannot chase.
+        </p>
+        <p>
+          <strong>Either Daily counts.</strong> The OG and the GO are two ways to keep one streak,
+          not two streaks. Finishing both on the same day counts once.
+        </p>
+        <p>
+          <strong>Finishing counts, not winning.</strong> A Daily you lose keeps the streak. What is
+          being measured is that you turned up, and a bad day is still a day.
+        </p>
+        <p>
+          <strong>The day is your local day</strong> — the same one the Daily calendar already uses.
+          Your streak turns over at your midnight rather than at a server&rsquo;s, so it does not
+          quietly punish you for living somewhere.
+        </p>
+        <p>
+          <strong>Miss a day and it lapses.</strong> The next Daily you finish starts a new streak at
+          one. The panel shows zero from the moment a day has gone by without one, rather than
+          holding a stale number until you come back.
+        </p>
+        <p>
+          <strong>Unlocking a past Daily cannot repair it.</strong> Playing an older date records
+          the result and pays the usual coins and experience, but the streak only ever moves
+          forward.
+        </p>
+
+        <div class="callout">
+          <p>
+            <strong>That last one is a deliberate refusal.</strong> Unlocking a past Daily costs 60
+            coins, and coins are earned by playing. If a missed day could be bought back, the streak
+            would stop being a record of showing up and start being a record of having enough coins,
+            which is a different and much less interesting thing to have.
+          </p>
+        </div>
+
+        <h2>Zero says something now</h2>
+        <p>
+          A bare <code>0</code> is the least useful thing a counter can show, because it cannot tell
+          the difference between two situations that feel nothing alike. If you have never finished
+          a Daily the panel now says <b>start today</b>. If you had a streak and it lapsed, it says
+          <b>start again</b>.
+        </p>
+
+        <h2>One thing this nearly got wrong</h2>
+        <p>
+          Experience and coins are applied by a piece of code that only runs when there is
+          experience to apply. Hanging the streak off that would have worked for every Daily you
+          win and silently ignored every Daily you lose with nothing solved — which earns no
+          experience at all, and is exactly the day the rules above say should count.
+        </p>
+        <p>
+          So the test that proves this works plays a Daily <em>badly</em>, on purpose, against a real
+          deployment: nothing solved, no experience, no coins, and the streak has to move anyway. A
+          test that only ever wins would have passed over the bug.
+        </p>
+
+        <h2>It is on the methodology page</h2>
+        <p>
+          The <a href="https://amordle.vercel.app/methodology">methodology page</a> now carries the
+          streak alongside everything else it publishes, including the part about it being worked
+          out by the app on your device rather than enforced by the server. It was left off last
+          time because documenting a number that did nothing would have invited exactly the
+          suspicion that page exists to prevent. There is nothing to leave off now.
+        </p>
+      </main>
+
+      <footer class="site-footer">
+        <span>Amordle is built by <a href="https://ryanjosephkamp.github.io">Ryan Kamp</a>.</span>
+        <a href="https://github.com/ryanjosephkamp/amordle">Repository</a>
+        <a href="https://amordle.vercel.app/about">About</a>
+      </footer>
+    </div>
+  </body>
+</html>
