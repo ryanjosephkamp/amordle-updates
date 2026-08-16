@@ -6,7 +6,7 @@
     <title>The daily streak &middot; Amordle updates</title>
     <meta
       name="description"
-      content="The daily streak on your stats panel was displayed and never counted anything. It counts now — either Daily, finishing rather than winning, on your own local day."
+      content="The daily streak on your stats panel was displayed and never counted anything. It counts now — either Daily, finishing rather than winning, on your own local day. And you can finally open your own public profile."
     />
     <link rel="stylesheet" href="../style.css" />
   </head>
@@ -40,7 +40,7 @@
               post covers everything the video does.
             </p>
           </video>
-          <figcaption>Twenty-four seconds on how the streak works.</figcaption>
+          <figcaption>Twenty-eight seconds on the streak, and on seeing your own profile.</figcaption>
         </figure>
 
         <h2>What was wrong</h2>
@@ -112,6 +112,24 @@
           So the test that proves this works plays a Daily <em>badly</em>, on purpose, against a real
           deployment: nothing solved, no experience, no coins, and the streak has to move anyway. A
           test that only ever wins would have passed over the bug.
+        </p>
+
+        <h2>You can see your own profile now</h2>
+        <p>
+          Every player has a public profile at an address they can copy and send to somebody.
+          Until today it was the one address they could not open themselves: visiting your own
+          public profile bounced you straight back to the editor, so the only person who could
+          not see what your profile looks like was you.
+        </p>
+        <p>
+          The editor now has a <b>View public profile</b> button next to the copy button, and it
+          takes you to the real page rather than a mock-up of it — the same page, with the same
+          data, that a visitor gets. When you are looking at your own, an <b>Edit profile</b>
+          button sits beside the copy button to bring you back.
+        </p>
+        <p>
+          If your profile is private, that page shows nothing to visitors, and it now says so in
+          those words rather than telling you the player was not found.
         </p>
 
         <h2>It is on the methodology page</h2>

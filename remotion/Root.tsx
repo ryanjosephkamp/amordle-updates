@@ -8,14 +8,16 @@ import { UpdateVideo, updateVideoSchema } from './UpdateVideo';
  * means writing a new props object, not a new composition — which is the only
  * way a per-post video stays cheap enough to actually keep making.
  *
- * 30fps x 720 frames = 24 seconds, inside the 15-30s the changelog asks for.
+ * 30fps x 850 frames = 28 seconds, inside the 15-30s the changelog asks for.
+ * The duration is TITLE_FRAMES + beats x BEAT_FRAMES + CLOSING_FRAMES, so adding
+ * a beat means adding 130 here as well as an entry below.
  */
 export const Root: React.FC = () => {
   return (
     <Composition
       id="update"
       component={UpdateVideo}
-      durationInFrames={720}
+      durationInFrames={850}
       fps={30}
       width={1280}
       height={720}
@@ -43,6 +45,11 @@ export const Root: React.FC = () => {
             heading: 'Miss a day',
             lines: ['It lapses, and the next one starts again', 'at one. It cannot be bought back.'],
             figure: 'lapse' as const,
+          },
+          {
+            heading: 'See your own profile',
+            lines: ['Your public page used to bounce you', 'back to the editor. Now it opens.'],
+            figure: 'preview' as const,
           },
         ],
         closing: 'amordle.vercel.app/methodology',

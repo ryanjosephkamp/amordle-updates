@@ -23,7 +23,17 @@ import { z } from 'zod';
 const beatSchema = z.object({
   heading: z.string(),
   lines: z.array(z.string()),
-  figure: z.enum(['equation', 'pools', 'links', 'share', 'streak', 'either', 'day', 'lapse']),
+  figure: z.enum([
+    'equation',
+    'pools',
+    'links',
+    'share',
+    'streak',
+    'either',
+    'day',
+    'lapse',
+    'preview',
+  ]),
 });
 
 export const updateVideoSchema = z.object({
@@ -200,6 +210,40 @@ function Figure({ kind }: { kind: Beat['figure'] }) {
         >
           COPY LINK
         </span>
+      </div>
+    );
+  }
+
+  if (kind === 'preview') {
+    return (
+      <div style={{ ...box, padding: 24 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
+          <span style={{ color: INK, fontSize: 20 }}>your profile</span>
+          <span
+            style={{
+              border: `1px solid ${ACCENT}`,
+              color: ACCENT,
+              padding: '8px 16px',
+              fontSize: 19,
+            }}
+          >
+            VIEW PUBLIC PROFILE
+          </span>
+          <span style={{ color: MUTED, fontSize: 21 }}>⇄</span>
+          <span
+            style={{
+              border: `1px solid ${ACCENT}`,
+              color: ACCENT,
+              padding: '8px 16px',
+              fontSize: 19,
+            }}
+          >
+            EDIT PROFILE
+          </span>
+        </div>
+        <div style={{ marginTop: 14, color: MUTED, fontSize: 19 }}>
+          the page a visitor sees, and the way back
+        </div>
       </div>
     );
   }
