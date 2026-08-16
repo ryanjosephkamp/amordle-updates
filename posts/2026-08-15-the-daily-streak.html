@@ -141,6 +141,35 @@
           time because documenting a number that did nothing would have invited exactly the
           suspicion that page exists to prevent. There is nothing to leave off now.
         </p>
+
+        <h2>Also in this release</h2>
+        <p>
+          Three smaller things, none of which changes what you see, and all of which are the
+          kind of fix that stops something going wrong later.
+        </p>
+        <p>
+          <strong>The methodology page now checks itself.</strong> The rating numbers it
+          publishes &mdash; the two K-factors, the starting rating, the equation &mdash; used to be
+          compared against a second copy of them written in the app. Two copies of the same
+          number agree with each other right up until one of them changes. They are now checked
+          against the database code that actually settles a match, so the page cannot quietly
+          drift away from the game. The old copy is deleted; it had a rounding rule that
+          disagreed with the database on exact halves, which would eventually have cost somebody
+          a point.
+        </p>
+        <p>
+          <strong>The custom accent bug is fixed at its source.</strong> Saving a custom accent
+          and then switching back to a named one used to break your profile page. That was fixed
+          in the app a day earlier, so nobody should have seen it since; the database now returns
+          the right answer in the first place, which is where the mistake actually was.
+        </p>
+        <p>
+          <strong>The last of the old testing accounts are gone.</strong> Eight were removed from
+          the player directory a day ago. Two more survived that clean-up &mdash; invisible on the
+          site, but still present underneath &mdash; because deleting them tripped over a rule the
+          game uses to record who played a Daily. They have now been retired properly, the same
+          way a real account is when somebody deletes one.
+        </p>
       </main>
 
       <footer class="site-footer">
