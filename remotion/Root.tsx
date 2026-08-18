@@ -1,5 +1,18 @@
-import { Composition } from 'remotion';
-import { UpdateVideo, updateVideoSchema } from './UpdateVideo';
+import { Composition } from "remotion";
+import { UpdateVideo, updateVideoSchema } from "./UpdateVideo";
+import {
+  EXPLAINER_FRAMES,
+  ExplainerVideo,
+  explainerSchema,
+} from "./ExplainerVideo";
+
+/*
+ * Two compositions with different jobs. `update` narrates what changed in a
+ * release and is reused for every changelog post. `explainer` teaches the rules
+ * to somebody who has never opened the game, and is the video that sits at the
+ * top of the blog post — it shows boards being marked rather than describing
+ * marking, so it does not reduce to a props object.
+ */
 
 /*
  * One composition, reused for every post.
@@ -14,46 +27,74 @@ import { UpdateVideo, updateVideoSchema } from './UpdateVideo';
  */
 export const Root: React.FC = () => {
   return (
-    <Composition
-      id="update"
-      component={UpdateVideo}
-      durationInFrames={850}
-      fps={30}
-      width={1280}
-      height={720}
-      schema={updateVideoSchema}
-      defaultProps={{
-        eyebrow: '15 AUGUST 2026',
-        title: 'The daily streak',
-        beats: [
-          {
-            heading: 'It counts now',
-            lines: ['The number was on your stats panel', 'and nothing ever moved it.'],
-            figure: 'streak' as const,
-          },
-          {
-            heading: 'Either Daily keeps it',
-            lines: ['OG or GO, and finishing counts —', 'a Daily you lose still keeps the streak.'],
-            figure: 'either' as const,
-          },
-          {
-            heading: 'Your local day',
-            lines: ['The streak turns over at your midnight,', 'not at a server’s.'],
-            figure: 'day' as const,
-          },
-          {
-            heading: 'Miss a day',
-            lines: ['It lapses, and the next one starts again', 'at one. It cannot be bought back.'],
-            figure: 'lapse' as const,
-          },
-          {
-            heading: 'See your own profile',
-            lines: ['Your public page used to bounce you', 'back to the editor. Now it opens.'],
-            figure: 'preview' as const,
-          },
-        ],
-        closing: 'amordle.vercel.app/methodology',
-      }}
-    />
+    <>
+      <Composition
+        id="update"
+        component={UpdateVideo}
+        durationInFrames={850}
+        fps={30}
+        width={1280}
+        height={720}
+        schema={updateVideoSchema}
+        defaultProps={{
+          eyebrow: "15 AUGUST 2026",
+          title: "The daily streak",
+          beats: [
+            {
+              heading: "It counts now",
+              lines: [
+                "The number was on your stats panel",
+                "and nothing ever moved it.",
+              ],
+              figure: "streak" as const,
+            },
+            {
+              heading: "Either Daily keeps it",
+              lines: [
+                "OG or GO, and finishing counts —",
+                "a Daily you lose still keeps the streak.",
+              ],
+              figure: "either" as const,
+            },
+            {
+              heading: "Your local day",
+              lines: [
+                "The streak turns over at your midnight,",
+                "not at a server’s.",
+              ],
+              figure: "day" as const,
+            },
+            {
+              heading: "Miss a day",
+              lines: [
+                "It lapses, and the next one starts again",
+                "at one. It cannot be bought back.",
+              ],
+              figure: "lapse" as const,
+            },
+            {
+              heading: "See your own profile",
+              lines: [
+                "Your public page used to bounce you",
+                "back to the editor. Now it opens.",
+              ],
+              figure: "preview" as const,
+            },
+          ],
+          closing: "amordle.vercel.app/methodology",
+        }}
+      />
+
+      <Composition
+        id="explainer"
+        component={ExplainerVideo}
+        durationInFrames={EXPLAINER_FRAMES}
+        fps={30}
+        width={1280}
+        height={720}
+        schema={explainerSchema}
+        defaultProps={{ title: "Amordle", closing: "amordle.vercel.app" }}
+      />
+    </>
   );
 };
