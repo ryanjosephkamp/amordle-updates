@@ -3,8 +3,8 @@
 The changelog for [Amordle](https://amordle.vercel.app), published with GitHub
 Pages at <https://ryanjosephkamp.github.io/amordle-updates/>.
 
-This repository is public. The game's own repository is not, which is the reason
-the changelog lives here rather than there.
+The game's source is in [ryanjosephkamp/amordle](https://github.com/ryanjosephkamp/amordle).
+The changelog lives here so it can be published on its own.
 
 ## What goes in
 
