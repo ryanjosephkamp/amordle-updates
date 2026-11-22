@@ -317,6 +317,107 @@ body {
   color: var(--accent-text);
 }
 
+/*
+ * The credit row: the footer's last row, on a line of its own. The same row and the
+ * same treatment as the one that closes the game's About, Help, and Methodology pages,
+ * read from this page's tokens so it follows light and dark.
+ */
+.site-credit {
+  --credit-ink: var(--ink);
+  --credit-muted: var(--muted);
+  --credit-line: var(--border);
+  --credit-accent: var(--accent-text);
+  --credit-heart: var(--accent-text);
+  --credit-hover: color-mix(in oklch, var(--ink) 8%, transparent);
+  display: flex;
+  flex: 1 0 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  border-top: var(--rule);
+  padding-top: var(--space-5);
+  font-size: var(--text-3);
+}
+
+.site-credit-made {
+  margin: 0;
+  color: var(--credit-ink);
+  font-weight: 600;
+}
+
+.site-footer .site-credit-made a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--credit-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
+}
+
+.site-credit-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer .site-credit-social a {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  color: var(--credit-muted);
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.site-footer .site-credit-social a:hover {
+  color: var(--credit-ink);
+  background: var(--credit-hover);
+}
+
+.site-credit-social svg {
+  width: 19px;
+  height: 19px;
+}
+
+.site-footer .site-credit-sponsor {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--credit-line);
+  border-radius: 999px;
+  color: var(--credit-ink);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.site-credit-sponsor svg {
+  width: 17px;
+  height: 17px;
+  color: var(--credit-heart);
+}
+
+.site-footer .site-credit-sponsor:hover {
+  border-color: var(--credit-muted);
+  background: var(--credit-hover);
+}
+
+@media (max-width: 720px) {
+  .site-footer .site-credit-sponsor {
+    margin-left: 0;
+  }
+}
+
 a:focus-visible,
 :focus-visible {
   outline: 2px solid var(--focus);
